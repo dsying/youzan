@@ -4,6 +4,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import url from 'js/api.js'
 import qs from 'qs'
+import mixin from "js/mixin.js";
 
 // qs 模块 获取url的queryString
 let {keyword,id} = qs.parse(location.search.substr(1))
@@ -27,11 +28,14 @@ new Vue({
   methods: {
 
   },
-  filters: {
-    number(price){
-      return parseFloat(price).toFixed(2)
-    }
-  }
+  // 引入一个 混入对象
+  mixins:[mixin],
+
+  //  - filters: {
+  //  -   number(price){
+  //  -     return parseFloat(price).toFixed(2)
+  //  -   }
+  //  - }
 })
 
 

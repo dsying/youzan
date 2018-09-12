@@ -3,7 +3,8 @@ import 'css/common.css'
 import url from 'js/api.js'
 import axios from 'axios'
 import Vue from 'vue'
-import Foot from 'components/Foot.vue'
+import mixin from "js/mixin.js";
+// import Foot from 'components/Foot.vue'
 
 new Vue({
   el: '#app',
@@ -22,14 +23,16 @@ new Vue({
     //分类初始加载综合排行
     this.getSubList(0)
   },
-  components: {
-    Foot
-  },
-  filters: {
-    number(price) {
-      return parseFloat(price).toFixed(2)
-    }
-  },
+  //引入一个混入对象，替代可复用的Foot组件和过滤器number
+  mixins: [mixin],
+  //  - components: {
+  //  -   Foot
+  //  - },
+  //  - filters: {
+  //  -   number(price) {
+  //  -     return parseFloat(price).toFixed(2)
+  //  -   }
+  //  - },
   methods: {
     //导航
     getTopList: function () {
