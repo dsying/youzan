@@ -3,14 +3,12 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
-  // entry: {
-  //   app: './src/main.js'
-  // },
+  // 入口 dynamic function
   entry: utils.entries(),
   output: {
     path: config.build.assetsRoot,
@@ -23,7 +21,10 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'css': '@/modules/css',
+      'js': '@/modules/js',
+      'components': '@/components'
     }
   },
   module: {
