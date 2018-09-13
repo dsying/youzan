@@ -5,6 +5,7 @@ import axios from 'axios'
 import url from 'js/api.js'
 import qs from 'qs'
 import mixin from "js/mixin.js";
+import Velocity from 'velocity-animate';
 import { InfiniteScroll } from 'mint-ui';
 
 Vue.use(InfiniteScroll);
@@ -68,7 +69,7 @@ new Vue({
     },
     //返回 顶部
     toTop() {
-      document.documentElement
+      Velocity(document.documentElement, 'scroll', { duration: 1000 });
     }
   },
   // 引入一个 混入对象
